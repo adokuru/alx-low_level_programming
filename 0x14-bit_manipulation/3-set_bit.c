@@ -1,19 +1,23 @@
 #include "main.h"
 
 /**
-*set_bit - sets a bit at position to 1
-*@n: number to be used
-*@index: index to be set
-*
-*Return: 1 on success, -1 on failure
-*/
-
+ * set_bit - set the bit at a given index
+ * @n: number to check
+ * @index: index to check
+ * Return: bit value or -1;
+ */
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	if (n == NULL || (index > (sizeof(unsigned long int) * 8) - 1))
-		return (-1);
+	unsigned long int i = 1, len = 0;
 
-	*n |= (1 << index);
+	if (!n)
+		return (-1);
+	while (len++ < index)
+	{
+		if (len >= MAX_COUNT)
+			return (-1);
+		i = i << 1;
+	}
+	*n |= i;
 	return (1);
 }
-
