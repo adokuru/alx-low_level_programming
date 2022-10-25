@@ -1,13 +1,14 @@
 #include <stdio.h>
+#include <unistd.h>
 
-void __attribute__((constructor)) hare(void);
+void start(void) __attribute__((constructor));
 
 /**
- * hare - Prints a string before the
- *   main function is executed.
+ * start - executes before main
  */
-void hare(void)
+
+void start(void)
 {
-printf("You're beat! and yet, you must allow,\n"
-"I bore my house upon my back!\n");
+	printf("You're beat! and yet, you must allow,\n");
+	printf("I bore my house upon my back!\n");
 }

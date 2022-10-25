@@ -1,21 +1,18 @@
 #include "lists.h"
 
 /**
- *sum_listint - sums up all the data in a linked list
- *@head: head of the list
- *
- *Return: sum of the number
+ * sum_listint - prints a singly linked list
+ * @h: head of the list
+ * Return: sum of list data
  */
-
-int sum_listint(listint_t *head)
+int sum_listint(listint_t *h)
 {
-listint_t *cursor = head;
-size_t sum = 0;
+	int retval = 0;
 
-while (cursor != NULL)
-{
-sum += cursor->n;
-cursor = cursor->next;
-}
-return (sum);
+	while (h)
+	{
+		retval += h->n;
+		h = h->next;
+	}
+	return (retval);
 }
